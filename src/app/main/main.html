@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+  <div class="d-flex">
+    <input type="text" [(ngModel)]="searchEmail" class="form-control form-control-lg mx-2" placeholder="Email" />
+
+    <button *ngIf="!hasSearched" class="btn btn-primary btn-lg mx-1" (click)="searchByEmail()">Search</button>
+
+    <button *ngIf="hasSearched" class="btn btn-secondary btn-lg" (click)="resetSearch()">Reset</button>
+  </div>
+</div>
+
+
+
+
+
+<div class="container py-4">
+  <div class="row d-flex justify-content-center flex-wrap gap-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let u of filteredUsers">
+      <div class="card shadow-lg border-0 h-100 custom-card">
+        <img [src]="u.img" alt="User image" class="card-img-top object-fit-cover">
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">{{u.name}} <span><i class="fas fa-star" [ngClass]="u.verfied ? 'text-success' : 'text-danger'"></i></span></h5>
+          <p class="card-text text-muted mb-1">{{u.email}}</p>
+          <p class="card-text text-muted">{{u.phone}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
